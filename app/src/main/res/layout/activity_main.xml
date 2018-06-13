@@ -22,7 +22,9 @@
         android:id="@+id/reminder_list"
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        />
 
     <TextView
         android:id="@+id/no_reminder_text"
@@ -30,15 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="16dp"
+        android:textSize="16sp"
         android:gravity="center"
         android:visibility="gone"
         android:text="@string/no_reminders"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_below="@+id/toolbar"
-        android:background="@drawable/toolbar_dropshadow" />
 
     <com.getbase.floatingactionbutton.AddFloatingActionButton
         android:id="@+id/add_reminder"

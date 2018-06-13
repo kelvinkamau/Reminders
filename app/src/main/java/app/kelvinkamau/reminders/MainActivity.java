@@ -1,6 +1,7 @@
 package app.kelvinkamau.reminders;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +61,13 @@ public class MainActivity extends AppCompatActivity {
         // Initialize views
         mToolbar = findViewById(R.id.toolbar);
         mAddReminderButton = findViewById(R.id.add_reminder);
-        mList =  findViewById(R.id.reminder_list);
+        mList = findViewById(R.id.reminder_list);
         mNoReminderView = findViewById(R.id.no_reminder_text);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
+        mNoReminderView.setTypeface(tf);
+
+        //TODO Change toolbar typeface
 
         // To check is there are saved reminders
         // If there are no reminders display a message asking the user to create reminders
@@ -143,9 +148,7 @@ public class MainActivity extends AppCompatActivity {
                     mAdapter.onDeleteItem(getDefaultItemCount());
 
                     // Display toast to confirm delete
-                    Toast.makeText(getApplicationContext(),
-                            "Deleted",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Reminder Deleted", Toast.LENGTH_SHORT).show();
 
                     // To check is there are saved reminders
                     // If there are no reminders display a message asking the user to create reminders
@@ -193,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
     // Recreate recycler view
     // This is done so that newly created reminders are displayed
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         // To check is there are saved reminders
@@ -290,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Class for recycler view items
-        public  class ReminderItem {
+        public class ReminderItem {
             public String mTitle;
             public String mDateTime;
             public String mRepeat;
@@ -313,8 +316,8 @@ public class MainActivity extends AppCompatActivity {
             DateFormat f = new SimpleDateFormat("dd/mm/yyyy hh:mm");
 
             public int compare(Object a, Object b) {
-                String o1 = ((DateTimeSorter)a).getDateTime();
-                String o2 = ((DateTimeSorter)b).getDateTime();
+                String o1 = ((DateTimeSorter) a).getDateTime();
+                String o2 = ((DateTimeSorter) b).getDateTime();
 
                 try {
                     return f.parse(o1).compareTo(f.parse(o2));
@@ -325,10 +328,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // UI and data class for recycler view items
-        public  class VerticalItemHolder extends SwappingHolder
-                implements View.OnClickListener, View.OnLongClickListener {
+        public class VerticalItemHolder extends SwappingHolder implements View.OnClickListener, View.OnLongClickListener {
             private TextView mTitleText, mDateAndTimeText, mRepeatInfoText;
-            private ImageView mActiveImage , mThumbnailImage;
+            private ImageView mActiveImage, mThumbnailImage;
             private ColorGenerator mColorGenerator = ColorGenerator.DEFAULT;
             private TextDrawable mDrawableBuilder;
             private SimpleAdapter mAdapter;
@@ -343,11 +345,11 @@ public class MainActivity extends AppCompatActivity {
                 mAdapter = adapter;
 
                 // Initialize views
-                mTitleText = (TextView) itemView.findViewById(R.id.recycle_title);
-                mDateAndTimeText = (TextView) itemView.findViewById(R.id.recycle_date_time);
-                mRepeatInfoText = (TextView) itemView.findViewById(R.id.recycle_repeat_info);
-                mActiveImage = (ImageView) itemView.findViewById(R.id.active_image);
-                mThumbnailImage = (ImageView) itemView.findViewById(R.id.thumbnail_image);
+                mTitleText = itemView.findViewById(R.id.recycle_title);
+                mDateAndTimeText = itemView.findViewById(R.id.recycle_date_time);
+                mRepeatInfoText = itemView.findViewById(R.id.recycle_repeat_info);
+                mActiveImage = itemView.findViewById(R.id.active_image);
+                mThumbnailImage = itemView.findViewById(R.id.thumbnail_image);
             }
 
             // On clicking a reminder item
@@ -359,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
                     int mReminderClickID = IDmap.get(mTempPost);
                     selectReminder(mReminderClickID);
 
-                } else if(mMultiSelector.getSelectedPositions().isEmpty()){
+                } else if (mMultiSelector.getSelectedPositions().isEmpty()) {
                     mAdapter.setItemCount(getDefaultItemCount());
                 }
             }
@@ -378,15 +380,14 @@ public class MainActivity extends AppCompatActivity {
                 mTitleText.setText(title);
                 String letter = "A";
 
-                if(title != null && !title.isEmpty()) {
+                if (title != null && !title.isEmpty()) {
                     letter = title.substring(0, 1);
                 }
 
                 int color = mColorGenerator.getRandomColor();
 
                 // Create a circular icon consisting of  a random background colour and first letter of title
-                mDrawableBuilder = TextDrawable.builder()
-                        .buildRound(letter, color);
+                mDrawableBuilder = TextDrawable.builder().buildRound(letter, color);
                 mThumbnailImage.setImageDrawable(mDrawableBuilder);
             }
 
@@ -397,25 +398,25 @@ public class MainActivity extends AppCompatActivity {
 
             // Set repeat views
             public void setReminderRepeatInfo(String repeat, String repeatNo, String repeatType) {
-                if(repeat.equals("true")){
+                if (repeat.equals("true")) {
                     mRepeatInfoText.setText("Every " + repeatNo + " " + repeatType + "(s)");
-                }else if (repeat.equals("false")) {
+                } else if (repeat.equals("false")) {
                     mRepeatInfoText.setText("Repeat Off");
                 }
             }
 
             // Set active image as on or off
-            public void setActiveImage(String active){
-                if(active.equals("true")){
+            public void setActiveImage(String active) {
+                if (active.equals("true")) {
                     mActiveImage.setImageResource(R.drawable.ic_notifications_on_white_24dp);
-                }else if (active.equals("false")) {
+                } else if (active.equals("false")) {
                     mActiveImage.setImageResource(R.drawable.ic_notifications_off_grey600_24dp);
                 }
             }
         }
 
         // Generate random test data
-        public  ReminderItem generateDummyData() {
+        public ReminderItem generateDummyData() {
             return new ReminderItem("1", "2", "3", "4", "5", "6");
         }
 
@@ -433,7 +434,7 @@ public class MainActivity extends AppCompatActivity {
             List<String> RepeatTypes = new ArrayList<>();
             List<String> Actives = new ArrayList<>();
             List<String> DateAndTime = new ArrayList<>();
-            List<Integer> IDList= new ArrayList<>();
+            List<Integer> IDList = new ArrayList<>();
             List<DateTimeSorter> DateTimeSortList = new ArrayList<>();
 
             // Add details of all reminders in their respective lists
@@ -450,7 +451,7 @@ public class MainActivity extends AppCompatActivity {
             int key = 0;
 
             // Add date and time as DateTimeSorter objects
-            for(int k = 0; k<Titles.size(); k++){
+            for (int k = 0; k < Titles.size(); k++) {
                 DateTimeSortList.add(new DateTimeSorter(key, DateAndTime.get(k)));
                 key++;
             }
@@ -461,11 +462,10 @@ public class MainActivity extends AppCompatActivity {
             int k = 0;
 
             // Add data to each recycler view item
-            for (DateTimeSorter item:DateTimeSortList) {
+            for (DateTimeSorter item : DateTimeSortList) {
                 int i = item.getIndex();
 
-                items.add(new SimpleAdapter.ReminderItem(Titles.get(i), DateAndTime.get(i), Repeats.get(i),
-                        RepeatNos.get(i), RepeatTypes.get(i), Actives.get(i)));
+                items.add(new SimpleAdapter.ReminderItem(Titles.get(i), DateAndTime.get(i), Repeats.get(i), RepeatNos.get(i), RepeatTypes.get(i), Actives.get(i)));
                 IDmap.put(k, IDList.get(i));
                 k++;
             }

@@ -4,6 +4,7 @@ package app.kelvinkamau.reminders;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -26,13 +27,12 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import java.util.Calendar;
 
 
-public class ReminderEditActivity extends AppCompatActivity implements
-        TimePickerDialog.OnTimeSetListener,
-        DatePickerDialog.OnDateSetListener{
+public class ReminderEditActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
     private Toolbar mToolbar;
     private EditText mTitleText;
     private TextView mDateText, mTimeText, mRepeatText, mRepeatNoText, mRepeatTypeText;
+    private TextView mDetails, getmDateText, getmTimeText, getmRepeatText, getmRepeatNoText, getmRepeatTypeText;
     private FloatingActionButton mFAB1;
     private FloatingActionButton mFAB2;
     private Switch mRepeatSwitch;
@@ -79,16 +79,39 @@ public class ReminderEditActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_add_reminder);
 
         // Initialize Views
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mTitleText = (EditText) findViewById(R.id.reminder_title);
-        mDateText = (TextView) findViewById(R.id.set_date);
-        mTimeText = (TextView) findViewById(R.id.set_time);
-        mRepeatText = (TextView) findViewById(R.id.set_repeat);
-        mRepeatNoText = (TextView) findViewById(R.id.set_repeat_no);
-        mRepeatTypeText = (TextView) findViewById(R.id.set_repeat_type);
-        mFAB1 = (FloatingActionButton) findViewById(R.id.starred1);
-        mFAB2 = (FloatingActionButton) findViewById(R.id.starred2);
-        mRepeatSwitch = (Switch) findViewById(R.id.repeat_switch);
+        mToolbar = findViewById(R.id.toolbar);
+        mTitleText = findViewById(R.id.reminder_title);
+        mDateText = findViewById(R.id.set_date);
+        mTimeText = findViewById(R.id.set_time);
+        mRepeatText = findViewById(R.id.set_repeat);
+        mRepeatNoText = findViewById(R.id.set_repeat_no);
+        mRepeatTypeText = findViewById(R.id.set_repeat_type);
+        mFAB1 = findViewById(R.id.starred1);
+        mFAB2 = findViewById(R.id.starred2);
+        mDetails = findViewById(R.id.details);
+        mRepeatSwitch = findViewById(R.id.repeat_switch);
+        getmDateText = findViewById(R.id.date_text);
+        getmTimeText = findViewById(R.id.time_text);
+        getmRepeatText = findViewById(R.id.repeat_text);
+        getmRepeatNoText = findViewById(R.id.repeat_no_text);
+        getmRepeatTypeText = findViewById(R.id.repeat_type_text);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
+        Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/TTMedium.otf");
+
+
+        getmRepeatTypeText.setTypeface(tf2);
+        getmRepeatNoText.setTypeface(tf2);
+        getmRepeatText.setTypeface(tf2);
+        getmTimeText.setTypeface(tf2);
+        getmDateText.setTypeface(tf2);
+        mTitleText.setTypeface(tf);
+        mDateText.setTypeface(tf);
+        mDetails.setTypeface(tf2);
+        mTimeText.setTypeface(tf);
+        mRepeatText.setTypeface(tf);
+        mRepeatNoText.setTypeface(tf);
+        mRepeatTypeText.setTypeface(tf);
 
         // Setup Toolbar
         setSupportActionBar(mToolbar);
@@ -99,7 +122,8 @@ public class ReminderEditActivity extends AppCompatActivity implements
         // Setup Reminder Title EditText
         mTitleText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -108,7 +132,8 @@ public class ReminderEditActivity extends AppCompatActivity implements
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
         });
 
         // Get reminder id from intent
@@ -199,7 +224,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
 
     // To save state on device rotation
     @Override
-    protected void onSaveInstanceState (Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
         outState.putCharSequence(KEY_TITLE, mTitleText.getText());
@@ -216,27 +241,17 @@ public class ReminderEditActivity extends AppCompatActivity implements
     }
 
     // On clicking Time picker
-    public void setTime(View v){
+    public void setTime(View v) {
         Calendar now = Calendar.getInstance();
-        TimePickerDialog tpd = TimePickerDialog.newInstance(
-                this,
-                now.get(Calendar.HOUR_OF_DAY),
-                now.get(Calendar.MINUTE),
-                false
-        );
+        TimePickerDialog tpd = TimePickerDialog.newInstance(this, now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false);
         tpd.setThemeDark(false);
         tpd.show(getFragmentManager(), "Timepickerdialog");
     }
 
     // On clicking Date picker
-    public void setDate(View v){
+    public void setDate(View v) {
         Calendar now = Calendar.getInstance();
-        DatePickerDialog dpd = DatePickerDialog.newInstance(
-                this,
-                now.get(Calendar.YEAR),
-                now.get(Calendar.MONTH),
-                now.get(Calendar.DAY_OF_MONTH)
-        );
+        DatePickerDialog dpd = DatePickerDialog.newInstance(this, now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH));
         dpd.show(getFragmentManager(), "Datepickerdialog");
     }
 
@@ -256,7 +271,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
     // Obtain date from date picker
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        monthOfYear ++;
+        monthOfYear++;
         mDay = dayOfMonth;
         mMonth = monthOfYear;
         mYear = year;
@@ -296,7 +311,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
     }
 
     // On clicking repeat type button
-    public void selectRepeatType(View v){
+    public void selectRepeatType(View v) {
         final String[] items = new String[5];
 
         items[0] = "Minute";
@@ -321,31 +336,27 @@ public class ReminderEditActivity extends AppCompatActivity implements
         alert.show();
     }
 
-    // On clicking repeat interval button
-    public void setRepeatNo(View v){
+    public void setRepeatNo(View v) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Enter Number");
 
-        // Create EditText box to input repeat number
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         alert.setView(input);
-        alert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
 
-                        if (input.getText().toString().length() == 0) {
-                            mRepeatNo = Integer.toString(1);
-                            mRepeatNoText.setText(mRepeatNo);
-                            mRepeatText.setText("Every " + mRepeatNo + " " + mRepeatType + "(s)");
-                        }
-                        else {
-                            mRepeatNo = input.getText().toString().trim();
-                            mRepeatNoText.setText(mRepeatNo);
-                            mRepeatText.setText("Every " + mRepeatNo + " " + mRepeatType + "(s)");
-                        }
-                    }
-                });
+                if (input.getText().toString().length() == 0) {
+                    mRepeatNo = Integer.toString(1);
+                    mRepeatNoText.setText(mRepeatNo);
+                    mRepeatText.setText("Every " + mRepeatNo + " " + mRepeatType + "(s)");
+                } else {
+                    mRepeatNo = input.getText().toString().trim();
+                    mRepeatNoText.setText(mRepeatNo);
+                    mRepeatText.setText("Every " + mRepeatNo + " " + mRepeatType + "(s)");
+                }
+            }
+        });
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 // Do nothing
@@ -355,7 +366,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
     }
 
     // On clicking the update button
-    public void updateReminder(){
+    public void updateReminder() {
         // Set new values in the reminder
         mReceivedReminder.setTitle(mTitle);
         mReceivedReminder.setDate(mDate);
@@ -402,8 +413,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
         }
 
         // Create toast to confirm update
-        Toast.makeText(getApplicationContext(), "Edited",
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Edited Successfully", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
 
@@ -437,7 +447,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
                 mTitleText.setText(mTitle);
 
                 if (mTitleText.getText().toString().length() == 0)
-                    mTitleText.setError("Reminder Title cannot be blank!");
+                    mTitleText.setError("Reminder title cannot be blank!");
 
                 else {
                     updateReminder();
@@ -447,8 +457,7 @@ public class ReminderEditActivity extends AppCompatActivity implements
             // On clicking discard reminder button
             // Discard any changes
             case R.id.discard_reminder:
-                Toast.makeText(getApplicationContext(), "Changes Discarded",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Changes Discarded", Toast.LENGTH_SHORT).show();
 
                 onBackPressed();
                 return true;

@@ -2,26 +2,46 @@
 
     <string name="app_name">Reminders</string>
 
-    <string name="title_activity_add_reminder">Add Reminder</string>
-    <string name="title_activity_edit_reminder">Edit Reminder</string>
-    <string name="title_activity_licenses">Licenses</string>
+    <string name="title_activity_add_reminder">Add reminder</string>
+    <string name="title_activity_edit_reminder">Edit reminder</string>
+    <string name="title_activity_licenses">About + Licenses </string>
 
-    <string name="add_reminder">Add a reminder</string>
-    <string name="details">Details</string>
+    <string name="add_reminder">Remind me to ...</string>
+    <string name="details">Reminder details</string>
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="repeat">Repeat</string>
     <string name="repeat_off">Off</string>
     <string name="repeat_no">Repetition Interval </string>
-    <string name="repeat_type">Type of Repetitions</string>
+    <string name="repeat_type">Repetition frequency</string>
 
     <string name="action_discard_reminder">Discard Reminder</string>
     <string name="action_save_reminder">Save Reminder</string>
 
     <string name="no_reminders">Click on the plus button below to begin creating your reminders!</string>
 
-    <string name="licenses"><BIG><b>NOTICES FOR LIBRARIES:</b></BIG> \n\n  <b>      1)  MaterialDateTimePicker
-        </b> \n\n<TT>Copyright (c) 2015 Wouter Dullaert\n\n
+    <string name="licenses">
+        <BIG><b>ABOUT : REMINDERS</b></BIG> \n\n  <b>  <BIG>Because We Are Human</BIG>
+        </b> \n\n<TT>Copyright © 2018 Kelvin Kamau\n\n
+
+                            Well, if you are like me(human), you know we have a naughty tendency
+                            of forgetting things. Forgetting things can get us into trouble. But
+                            not to worry, I got your back buddy rather this minimalistic app I
+                            made for you has your back.\n\n
+
+                            Find some of my other creative + open source work at\n\n
+
+                               https://www.kelvinkamau.app/\n\n
+
+                            combining my technical knowledge with my keen eye for design to
+                            create a beautiful product. My goal is to always build applications
+                            that are scalable and efficient under the hood while providing engaging,
+                            adaptive, eye-candy user experiences like this app.</TT>\n\n\n
+
+         =====================================================\n\n\n\n\n
+
+        <BIG><b>OPEN SOURCE LIBRARIES:</b></BIG> \n\n  <b>      1)  MaterialDateTimePicker
+        </b> \n\n<TT>Copyright © 2015 Wouter Dullaert\n\n
 
                             Licensed under the Apache License, Version 2.0 (the "License");
                             you may not use this file except in compliance with the License.
@@ -36,7 +56,7 @@
                             limitations under the License.</TT>\n\n\n
 
 
-        <BIG><b>NOTICES FOR LIBRARIES:</b></BIG> \n\n  <b>      2)  FloatingActionButton</b> \n\n<TT>Copyright (C) 2014 Jerzy Chalupski\n\n
+        <BIG><b>OPEN SOURCE LIBRARIES:</b></BIG> \n\n  <b>      2)  FloatingActionButton</b> \n\n<TT>Copyright © 2014 Jerzy Chalupski\n\n
 
                             Licensed under the Apache License, Version 2.0 (the "License");
                             you may not use this file except in compliance with the License.
@@ -50,7 +70,7 @@
                             See the License for the specific language governing permissions and
                             limitations under the License.</TT>\n\n\n
 
-        <BIG><b>NOTICES FOR LIBRARIES:</b></BIG> \n\n  <b>      3)  RecyclerView Multiselect</b> \n\n<TT>The MIT License (MIT)\n\n
+        <BIG><b>OPEN SOURCE LIBRARIES:</b></BIG> \n\n  <b>      3)  RecyclerView Multiselect</b> \n\n<TT>The MIT License (MIT)\n\n
 
                             Copyright (c) 2014 Big Nerd Ranch\n\n
                             Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -69,7 +89,7 @@
                             OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
                             SOFTWARE.</TT>\n\n\n
 
-        <BIG><b>NOTICES FOR LIBRARIES:</b></BIG> \n\n  <b>      4)  TextDrawable</b> \n\n<TT>The MIT License (MIT)\n\n
+        <BIG><b>OPEN SOURCE LIBRARIES:</b></BIG> \n\n  <b>      4)  TextDrawable</b> \n\n<TT>The MIT License (MIT)\n\n
 
                             Copyright (c) 2014 Amulya Khare\n\n
                             Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -88,9 +108,9 @@
                             OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
                             SOFTWARE.</TT>\n\n\n
 
-        <BIG><b>NOTICES FOR LIBRARIES:</b></BIG> \n\n  <b>      5)  material-design-icons</b> \n\n<TT>Attribution 4.0 International\n\n
+        <BIG><b>OPEN SOURCE LIBRARIES:</b></BIG> \n\n  <b>      5)  material-design-icons</b> \n\n<TT>Attribution 4.0 International\n\n
 
-                            =======================================================================\n\n
+                             =====================================================\n\n\n
 
                             Creative Commons Corporation ("Creative Commons") is not a law firm and
                             does not provide legal services or legal advice. Distribution of
@@ -142,7 +162,7 @@
                                  for the public:\n
                                 wiki.creativecommons.org/Considerations_for_licensees\n\n
 
-                            =======================================================================\n\n
+                             =====================================================\n\n\n
 
                             Creative Commons Attribution 4.0 International Public License\n\n
 
@@ -463,7 +483,7 @@
                                  processes of any jurisdiction or authority.\n\n\n
 
 
-                            =======================================================================\n\n
+                             =====================================================\n\n
 
                             Creative Commons is not a party to its public licenses.
                             Notwithstanding, Creative Commons may elect to apply one of its public

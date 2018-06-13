@@ -1,18 +1,25 @@
 package app.kelvinkamau.reminders;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.TextView;
 
 public class LicencesActivity extends AppCompatActivity {
     private Toolbar mToolbar;
+    private TextView mTexts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.licenses);
+
+        mTexts = findViewById(R.id.licenses_text_view);
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
+        mTexts.setTypeface(tf);
 
         // Setup Toolbar
         mToolbar = findViewById(R.id.toolbar);
@@ -20,6 +27,7 @@ public class LicencesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.title_activity_licenses);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         // Return to the previous activity on back press
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

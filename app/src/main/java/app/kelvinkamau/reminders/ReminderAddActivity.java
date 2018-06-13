@@ -2,6 +2,7 @@ package app.kelvinkamau.reminders;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +31,7 @@ public class ReminderAddActivity extends AppCompatActivity implements
 
     private Toolbar mToolbar;
     private EditText mTitleText;
+    private TextView details, getmDateText, getmTimeText, getmRepeatText,getmRepeatNoText,getmRepeatTypeText;
     private TextView mDateText, mTimeText, mRepeatText, mRepeatNoText, mRepeatTypeText;
     private FloatingActionButton mFAB1;
     private FloatingActionButton mFAB2;
@@ -68,7 +70,11 @@ public class ReminderAddActivity extends AppCompatActivity implements
 
         // Initialize Views
         mToolbar = findViewById(R.id.toolbar);
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
+        Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/TTMedium.otf");
+
         mTitleText = findViewById(R.id.reminder_title);
+
         mDateText =  findViewById(R.id.set_date);
         mTimeText =  findViewById(R.id.set_time);
         mRepeatText =  findViewById(R.id.set_repeat);
@@ -76,6 +82,26 @@ public class ReminderAddActivity extends AppCompatActivity implements
         mRepeatTypeText = findViewById(R.id.set_repeat_type);
         mFAB1 = findViewById(R.id.starred1);
         mFAB2 =findViewById(R.id.starred2);
+        details = findViewById(R.id.details);
+        getmDateText = findViewById(R.id.date_text);
+        getmTimeText = findViewById(R.id.time_text);
+        getmRepeatText= findViewById(R.id.repeat_text);
+        getmRepeatNoText = findViewById(R.id.repeat_no_text);
+        getmRepeatTypeText = findViewById(R.id.repeat_type_text);
+
+
+        getmRepeatTypeText.setTypeface(tf2);
+        getmRepeatNoText.setTypeface(tf2);
+        getmRepeatText.setTypeface(tf2);
+        getmTimeText.setTypeface(tf2);
+        getmDateText.setTypeface(tf2);
+        mTitleText.setTypeface(tf);
+        mDateText.setTypeface(tf);
+        details.setTypeface(tf2);
+        mTimeText.setTypeface(tf);
+        mRepeatText.setTypeface(tf);
+        mRepeatNoText.setTypeface(tf);
+        mRepeatTypeText.setTypeface(tf);
 
         // Setup Toolbar
         setSupportActionBar(mToolbar);
@@ -388,7 +414,7 @@ public class ReminderAddActivity extends AppCompatActivity implements
                 mTitleText.setText(mTitle);
 
                 if (mTitleText.getText().toString().length() == 0)
-                    mTitleText.setError("Reminder Title cannot be blank!");
+                    mTitleText.setError("Reminder title cannot be blank!");
 
                 else {
                     saveReminder();

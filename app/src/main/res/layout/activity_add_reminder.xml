@@ -52,6 +52,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:background="@color/background"
             android:layout_height="wrap_content">
 
             <TextView
@@ -59,7 +60,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/details"
                 android:id="@+id/details"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:gravity="center_vertical"
                 android:layout_marginLeft="72dp"
                 android:textColor="@color/abc_secondary_text_material_dark"
@@ -76,11 +77,11 @@
                 <ImageView
                     android:id="@+id/date_icon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="22dp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_view_day_grey600_24dp"
+                    android:src="@drawable/ic_view_day"
                     android:layout_centerVertical="true" />
 
                 <LinearLayout
@@ -120,11 +121,11 @@
                 <ImageView
                     android:id="@+id/time_icon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="24dp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_access_time_grey600_24dp"
+                    android:src="@drawable/ic_access_time"
                     android:layout_centerVertical="true" />
 
                 <LinearLayout
@@ -161,11 +162,11 @@
                 <ImageView
                     android:id="@+id/repeat_icon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="24dp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_sync_grey600_24dp"
+                    android:src="@drawable/ic_sync"
                     android:layout_centerVertical="true" />
 
                 <LinearLayout
@@ -219,11 +220,11 @@
                 <ImageView
                     android:id="@+id/repeat_no_icon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="24dp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_unfold_more_grey600_24dp"
+                    android:src="@drawable/ic_unfold"
                     android:layout_centerVertical="true" />
 
                 <LinearLayout
@@ -263,11 +264,11 @@
                 <ImageView
                     android:id="@+id/repeat_type_icon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="24dp"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="32dp"
-                    android:src="@drawable/ic_subject_grey600_24dp"
+                    android:src="@drawable/ic_subject"
                     android:layout_centerVertical="true" />
 
                 <LinearLayout
@@ -299,12 +300,6 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_below="@+id/add_reminder_layout_top"
-        android:background="@drawable/toolbar_dropshadow" />
 
     <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/starred1"
