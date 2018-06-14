@@ -72,6 +72,7 @@ public class ReminderAddActivity extends AppCompatActivity implements TimePicker
         Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/TTMedium.otf");
 
         mTitleText = findViewById(R.id.reminder_title);
+
         mDateText = findViewById(R.id.set_date);
         mTimeText = findViewById(R.id.set_time);
         mRepeatText = findViewById(R.id.set_repeat);

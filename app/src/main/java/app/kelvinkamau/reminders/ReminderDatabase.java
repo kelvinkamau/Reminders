@@ -173,5 +173,8 @@ public class ReminderDatabase extends SQLiteOpenHelper {
                 new String[]{String.valueOf(reminder.getID())});
         db.close();
     }
+//TODO Delete reminder that has already passed
+    //todo prevent user from selecting past date and time
+    //todo custom ringtone for app
 }
 
