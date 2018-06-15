@@ -301,6 +301,12 @@
 
     </ScrollView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/add_reminder_layout_top"
+        android:background="@drawable/toolbar_dropshadow" />
+
     <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/starred1"
         android:layout_width="wrap_content"
@@ -308,7 +314,7 @@
         android:clickable="true"
         android:onClick="selectFab1"
         fab:fab_icon="@drawable/ic_notifications_off_grey600_24dp"
-        fab:fab_colorNormal="@color/accent"
+        fab:fab_colorNormal="@color/control_normal"
         fab:fab_colorPressed="@color/fab_pressed"
         app:fab_size="normal"
         android:layout_alignParentLeft="true"
@@ -323,7 +329,7 @@
         android:clickable="true"
         android:onClick="selectFab2"
         fab:fab_icon="@drawable/ic_notifications_on_white_24dp"
-        fab:fab_colorNormal="@color/accent"
+        fab:fab_colorNormal="@color/control_normal"
         fab:fab_colorPressed="@color/fab_pressed"
         app:fab_size="normal"
         android:layout_alignParentLeft="true"

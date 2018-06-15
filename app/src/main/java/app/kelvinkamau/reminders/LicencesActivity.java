@@ -27,7 +27,6 @@ public class LicencesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.title_activity_licenses);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         // Return to the previous activity on back press
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

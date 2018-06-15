@@ -3,7 +3,7 @@
     <color name="toolbar_title">#ffffff</color>
     <color name="primary">#00002B</color>
     <color name="primary_dark">#18093F</color>
-    <color name="accent">#464A69</color>
+    <color name="accent">#fff</color>
     <color name="control_normal">#464A69</color>
     <color name="fab_pressed">#464A69</color>
     <color name="background">#000038</color>
