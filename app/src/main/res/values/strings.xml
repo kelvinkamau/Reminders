@@ -21,24 +21,13 @@
     <string name="no_reminders">Click on the plus button below to begin creating your reminders!</string>
 
     <string name="licenses">
-        <BIG><b>ABOUT : REMINDERS</b></BIG> \n\n  <b>  <BIG>Because We Are Human</BIG>
-        </b> \n\n<TT>Copyright © 2018 Kelvin Kamau\n\n
+        <BIG><b>ABOUT : REMINDERS</b></BIG> \n\n  <b><BIG>App built by MístöHQ Inc.</BIG>
+        </b> \n\n<TT>
+        An elegant and hassle free way to create reminders, get things done in time
+        and boost your productivity.
+        </TT>\n\n\n
 
-                            Well, if you are like me(human), you know we have a naughty tendency
-                            of forgetting things. Forgetting things can get us into trouble. But
-                            not to worry, I got your back buddy rather this minimalistic app I
-                            made for you has your back.\n\n
-
-                            Find some of my other creative + open source work at\n\n
-
-                               https://www.kelvinkamau.app/\n\n\n
-
-                            combining my technical knowledge with my keen eye for design to
-                            create a beautiful product. My goal is to always build applications
-                            that are scalable and efficient under the hood while providing engaging,
-                            adaptive, eye-candy user experiences like this app.</TT>\n\n\n
-
-         =====================================================\n\n\n\n\n
+         =====================================================\n\n\n
 
         <BIG><b>OPEN SOURCE LIBRARIES:</b></BIG> \n\n  <b>      1)  MaterialDateTimePicker
         </b> \n\n<TT>Copyright © 2015 Wouter Dullaert\n\n

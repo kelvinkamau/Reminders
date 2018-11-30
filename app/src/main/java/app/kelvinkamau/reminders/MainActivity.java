@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         mList = findViewById(R.id.reminder_list);
         mNoReminderView = findViewById(R.id.no_reminder_text);
 
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SourceLight.ttf");
         mNoReminderView.setTypeface(tf);
 
         //TODO Change toolbar typeface

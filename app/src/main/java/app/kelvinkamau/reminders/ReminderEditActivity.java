@@ -96,8 +96,8 @@ public class ReminderEditActivity extends AppCompatActivity implements TimePicke
         getmRepeatNoText = findViewById(R.id.repeat_no_text);
         getmRepeatTypeText = findViewById(R.id.repeat_type_text);
 
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
-        Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/TTMedium.otf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SourceLight.ttf");
+        Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/SourceBold.ttf");
 
 
         getmRepeatTypeText.setTypeface(tf2);

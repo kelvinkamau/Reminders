@@ -68,9 +68,8 @@ public class ReminderAddActivity extends AppCompatActivity implements TimePicker
 
         // Initialize Views
         mToolbar = findViewById(R.id.toolbar);
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
-        Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/TTMedium.otf");
-
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SourceLight.ttf");
+        Typeface tf2 = Typeface.createFromAsset(getAssets(), "fonts/SourceBold.ttf");
         mTitleText = findViewById(R.id.reminder_title);
 
         mDateText = findViewById(R.id.set_date);

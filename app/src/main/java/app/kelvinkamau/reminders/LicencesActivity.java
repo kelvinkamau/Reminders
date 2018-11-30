@@ -18,7 +18,7 @@ public class LicencesActivity extends AppCompatActivity {
         setContentView(R.layout.licenses);
 
         mTexts = findViewById(R.id.licenses_text_view);
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/TTNorms.otf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SourceLight.ttf");
         mTexts.setTypeface(tf);
 
         // Setup Toolbar
