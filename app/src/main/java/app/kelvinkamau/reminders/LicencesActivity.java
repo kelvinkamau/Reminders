@@ -1,28 +1,30 @@
 package app.kelvinkamau.reminders;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LicencesActivity extends AppCompatActivity {
-    private Toolbar mToolbar;
-    private TextView mTexts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.licenses);
 
-        mTexts = findViewById(R.id.licenses_text_view);
+        TextView mTexts = findViewById(R.id.licenses_text_view);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/SourceLight.ttf");
         mTexts.setTypeface(tf);
 
         // Setup Toolbar
-        mToolbar = findViewById(R.id.toolbar);
+        Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(R.string.title_activity_licenses);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -36,6 +38,7 @@ public class LicencesActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
     }
 
     // To prevent crashes due to pressing physical menu buttons

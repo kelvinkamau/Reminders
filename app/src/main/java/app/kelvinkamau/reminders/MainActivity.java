@@ -38,15 +38,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mList;
     private SimpleAdapter mAdapter;
-    private Toolbar mToolbar;
     private TextView mNoReminderView;
-    private FloatingActionButton mAddReminderButton;
-    private int mTempPost;
     private LinkedHashMap<Integer, Integer> IDmap = new LinkedHashMap<>();
     private ReminderDatabase rb;
     private MultiSelector mMultiSelector = new MultiSelector();
     private AlarmReceiver mAlarmReceiver;
-    private FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -54,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         // Initialize reminder database
         rb = new ReminderDatabase(getApplicationContext());
 
         // Initialize views
-        mToolbar = findViewById(R.id.toolbar);
-        mAddReminderButton = findViewById(R.id.add_reminder);
+        Toolbar mToolbar = findViewById(R.id.toolbar);
+        FloatingActionButton mAddReminderButton = findViewById(R.id.add_reminder);
         mList = findViewById(R.id.reminder_list);
         mNoReminderView = findViewById(R.id.no_reminder_text);
 
@@ -248,22 +244,22 @@ public class MainActivity extends AppCompatActivity {
     public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.VerticalItemHolder> {
         private ArrayList<ReminderItem> mItems;
 
-        public SimpleAdapter() {
+        SimpleAdapter() {
             mItems = new ArrayList<>();
         }
 
-        public void setItemCount(int count) {
+        void setItemCount(int count) {
             mItems.clear();
             mItems.addAll(generateData(count));
             notifyDataSetChanged();
         }
 
-        public void onDeleteItem(int count) {
+        void onDeleteItem(int count) {
             mItems.clear();
             mItems.addAll(generateData(count));
         }
 
-        public void removeItemSelected(int selected) {
+        void removeItemSelected(int selected) {
             if (mItems.isEmpty()) return;
             mItems.remove(selected);
             notifyItemRemoved(selected);
@@ -293,15 +289,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Class for recycler view items
-        public class ReminderItem {
-            public String mTitle;
-            public String mDateTime;
-            public String mRepeat;
-            public String mRepeatNo;
-            public String mRepeatType;
-            public String mActive;
+        class ReminderItem {
+            String mTitle;
+            String mDateTime;
+            String mRepeat;
+            String mRepeatNo;
+            String mRepeatType;
+            String mActive;
 
-            public ReminderItem(String Title, String DateTime, String Repeat, String RepeatNo, String RepeatType, String Active) {
+            ReminderItem(String Title, String DateTime, String Repeat, String RepeatNo, String RepeatType, String Active) {
                 this.mTitle = Title;
                 this.mDateTime = DateTime;
                 this.mRepeat = Repeat;
@@ -356,7 +352,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!mMultiSelector.tapSelection(this)) {
-                    mTempPost = mList.getChildAdapterPosition(v);
+                    int mTempPost = mList.getChildAdapterPosition(v);
 
                     int mReminderClickID = IDmap.get(mTempPost);
                     selectReminder(mReminderClickID);

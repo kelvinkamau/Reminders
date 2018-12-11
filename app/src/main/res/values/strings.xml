@@ -14,6 +14,7 @@
     <string name="repeat_off">Off</string>
     <string name="repeat_no">Repetition Interval </string>
     <string name="repeat_type">Repetition frequency</string>
+    <string name="rate">Rate this app</string>
 
     <string name="action_discard_reminder">Discard Reminder</string>
     <string name="action_save_reminder">Save Reminder</string>
